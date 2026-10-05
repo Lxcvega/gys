@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "task_id": "replace-me",
+  "attempt": 1,
+  "role": "developer",
+  "actor_id": "replace-with-isolated-run-id",
+  "started_at": "2026-01-01T00:00:00Z",
+  "finished_at": "2026-01-01T00:01:00Z",
+  "owned_paths": ["replace/with/exact/path.py"],
+  "changed_files": ["replace/with/exact/path.py"],
+  "summary": "What changed and why.",
+  "evidence": ["git diff -- replace/with/exact/path.py"],
+  "status": "implemented"
+}
+

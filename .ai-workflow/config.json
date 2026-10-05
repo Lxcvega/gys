@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "backend": {
+    "preferred": "roo-worker-bridge",
+    "requires_isolated_contexts": true,
+    "requires_exact_file_ownership": true
+  },
+  "roles": {
+    "orchestrator": {"write": [".ai-workflow/runs/**"], "delegate": true},
+    "developer": {"write": ["assigned_paths_only"], "delegate": false},
+    "reviewer": {"write": [], "delegate": false},
+    "tester": {"write": ["assigned_test_paths_only"], "delegate": false},
+    "writer": {"write": ["assigned_reports_only"], "delegate": false}
+  },
+  "gates": {
+    "review": {"required": true, "max_open_severity": 1},
+    "test": {"required": true, "require_zero_exit_codes": true},
+    "final": {"require_distinct_actors": true}
+  }
+}
+

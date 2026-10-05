@@ -1,0 +1,52 @@
+# ── 敏感配置：包含 API 密钥，严禁提交 ──
+.env
+.env.local
+.env.*.local
+.env.*
+!.env.example
+config/secret_key
+config/secret_key.*
+*.pem
+*.key
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# ── 虚拟环境 ──
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 本地业务数据、训练权重和输出（请勿用 git add -f 绕过）
+data/raw/
+data/models/
+/models/
+results/
+reports/
+selection_results.*
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.ckpt
+*.joblib
+
+# 备份、编辑器及本机配置
+backup/
+backup_*/
+backups/
+*.bak
+*.backup
+*.tmp
+*.swp
+*~
+~$*
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

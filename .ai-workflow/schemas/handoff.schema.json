@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent handoff",
+  "type": "object",
+  "required": ["schema_version", "task_id", "attempt", "role", "actor_id", "started_at", "finished_at", "owned_paths", "summary", "evidence", "status"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "task_id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "attempt": {"type": "integer", "minimum": 1},
+    "role": {"enum": ["developer", "reviewer", "tester", "writer"]},
+    "actor_id": {"type": "string", "minLength": 1},
+    "started_at": {"type": "string", "format": "date-time"},
+    "finished_at": {"type": "string", "format": "date-time"},
+    "owned_paths": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "summary": {"type": "string", "minLength": 1},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "status": {"enum": ["implemented", "approved", "changes_requested", "passed", "failed", "blocked"]},
+    "changed_files": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "verdict": {"enum": ["approved", "changes_requested"]},
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "file", "message", "resolved"],
+        "properties": {
+          "severity": {"type": "integer", "minimum": 0, "maximum": 3},
+          "file": {"type": "string"},
+          "line": {"type": ["integer", "null"], "minimum": 1},
+          "message": {"type": "string", "minLength": 1},
+          "resolved": {"type": "boolean"}
+        }
+      }
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["command", "exit_code"],
+        "properties": {
+          "command": {"type": "string", "minLength": 1},
+          "exit_code": {"type": "integer"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "gaps": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}
+

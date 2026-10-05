@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "task_id": "replace-me",
+  "goal": "Bind the requested outcome.",
+  "acceptance_criteria": ["Replace with observable criteria."],
+  "constraints": ["Preserve unrelated and uncommitted changes."],
+  "assignments": [
+    {
+      "role": "developer",
+      "owned_paths": ["replace/with/exact/path.py"],
+      "inputs": ["task.json", "relevant source files"],
+      "expected_output": "Implemented change plus developer handoff"
+    },
+    {
+      "role": "reviewer",
+      "owned_paths": [],
+      "inputs": ["task.json", "actual diff"],
+      "expected_output": "Independent verdict and findings"
+    },
+    {
+      "role": "tester",
+      "owned_paths": ["tests/test_replace_me.py"],
+      "inputs": ["task.json", "changed code"],
+      "expected_output": "Commands, exit codes, and gaps"
+    }
+  ]
+}
+

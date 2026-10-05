@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "task_id": "replace-me",
+  "attempt": 1,
+  "role": "reviewer",
+  "actor_id": "replace-with-fresh-review-run-id",
+  "started_at": "2026-01-01T00:02:00Z",
+  "finished_at": "2026-01-01T00:03:00Z",
+  "owned_paths": [],
+  "summary": "Independent review of the actual diff.",
+  "evidence": ["git diff --check"],
+  "verdict": "approved",
+  "findings": [],
+  "status": "approved"
+}
+
